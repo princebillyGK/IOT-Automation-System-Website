@@ -3,7 +3,7 @@
 - Install Xampp.
 - Change xampp user password to '161331' for user account 'root' and host 'localhost'
 - Copy php.ini file from 'copy it; folder in xampp/php
-- Create a Database named 'pass_vr'.
+- Create a Database named 'iot_cn'.
 - Export SQL from 'SQL script' folder.
 - Install npm globally
 - Run "npm install" comand once
