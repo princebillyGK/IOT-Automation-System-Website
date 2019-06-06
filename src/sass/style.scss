@@ -1,0 +1,140 @@
+@import "varriable";
+@import "mixin";
+@import 'reset';
+@import 'bootstrap';
+@import "fontawesome";
+
+/*==============================
+=            Common            =
+==============================*/
+html, body {min-height: 100%;}
+body{
+	margin-top: $body-start;
+	background: url("../img/body.jpg") no-repeat; 
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+}
+footer{
+	position: fixed;
+	bottom:0;
+	left: 10px;
+}
+/*=====  End of Common  ======*/
+
+/*==================================
+=            Login Form            =
+==================================*/
+
+#login-form{
+	background: #fff;
+	max-width: 600px;
+	@include center;
+	@include mat;
+}
+
+/*=====  End of Login Form  ======*/
+
+
+/*=============================
+=            index            =
+=============================*/
+
+.view{
+	background-color: rgba(256,256,256,0.8);
+	padding: 10px;
+	@include mat;
+	margin: 50px 0;
+	border-radius: 1px;
+	.title{
+		font-size: 1.5rem;
+	}
+}
+.sensors-view{
+	margin-top: 100px;
+}
+
+.add-user{
+	border-radius: 50%;
+	position: fixed;
+	bottom:10px;
+	right: 10px;
+	padding: 8px 10px;
+}
+
+.sensorbox{
+	background-color: #F6F6F6;
+	width: 200px;
+	height: 70px;
+	@include mat;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	.title{
+		font-size: 16px;
+		padding: 2px;
+		margin: 0;
+		display: inline-block;
+		font-weight: bold;
+	}
+	.logo{
+		height: 32px;
+		display: inline-block;
+		float: right;
+	}
+}
+
+.switch{
+	text-decoration: none;
+	color: black;
+	&:hover{
+		text-decoration: none;
+		color: black;
+	}
+	&:active{
+		color: none;
+	}
+	&:visited{
+		color: none;
+	}
+}
+.switchbox{
+	background-color: #F6F6F6;
+	width: 100px;
+	height: 100px;
+	display: block;
+	@include mat;
+	@include  mat-hover;
+	@include mat-active;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	&:active{
+		background-color: #AAAAAA;
+	}
+	.title{
+		font-size: 14px;
+		padding: 2px;
+		margin: 0;
+		text-align: center;
+		font-weight: bold;
+	}
+	.logo{
+		height: 36px;
+		display: block;
+	 	margin: 3px auto;
+	}
+}
+/*=====  End of index  ======*/
+
+/*====================================
+=            unauthorized            =
+====================================*/
+.not-found{
+	max-width: 600px;
+	@include mat;
+	@include center;
+}
+
+/*=====  End of unauthorized  ======*/

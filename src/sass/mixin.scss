@@ -1,0 +1,20 @@
+@mixin mat{
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22), 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+@mixin mat-hover{
+	&:hover{
+		box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+	}
+}
+@mixin mat-active{
+	&:active{
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.11), 0 3px 5px rgba(0, 0, 0, 0.1);
+	}
+}
+
+@mixin center{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
