@@ -102,6 +102,12 @@
 </div>
 
 
+<div class="view Geoloaction-view">
+ 		<span class="title"><i class="fas fa-toggle-on"></i> Geolocation</span>
+ 		
+</div>
+
+
  <?php if($usertype=='admin'):  ?>
  	<a href="customize-admin.php#userview" class="add-user btn btn-light">
  		<i class="fas fa-user-plus"></i>

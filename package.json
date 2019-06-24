@@ -1,0 +1,24 @@
+{
+  "name": "iotbm",
+  "version": "1.0.0",
+  "description": "- Install Xampp.\r - Change xampp user password to '161331' for user account 'root' and host 'localhost'\r - Copy php.ini file from 'copy it; folder in xampp/php\r - Create a Database named 'iot_cn'.\r - Export SQL from 'SQL script' folder.\r - Install npm globally\r - Run \"npm install\" comand once\r - Run Gulp default task once for compile dist folder if you want to live editing you can also keep running gulp 'wt' task .\r - use this chrome extension to randomly feel all data in a form if you needed [Form Filler](https://bitbucket.org/princebilly/passport-verification-site/src/master/)\r - use 'dummy uploads' folder if you needed\r - You are all done enjoy it now.",
+  "main": ".sublime-gulp-tmp.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/princebilly/home-automation-dynamic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/princebilly/home-automation-dynamic#readme"
+}
