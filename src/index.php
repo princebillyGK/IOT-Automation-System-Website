@@ -99,13 +99,38 @@
 			<?php endforeach ?>
 		</div>
  </div>
+<?php
+	$db->query("SELECT * FROM `configuration` WHERE `item`='showMap'");
+	$showMap=$db->fetch();
+?>
+<?php if($showMap->value=='1'): ?>
+	<div class="view Geoloaction-view">
+			<span class="title"><i class="fas fa-map-marked-alt"></i> Geolocation</span>
+			<?php if($usertype=='admin'):  ?>
+				<a href="customize-admin.php#mapView" class="btn btn-success text-light float-right">
+					<i class="fas fa-cog"></i>
+				</a>
+			<?php endif; ?>
+			<hr>
+			<?php
+				$db->query("SELECT `value` FROM `sensors` WHERE `name`='ip'");
+				$ip_row= $db->fetch();
+				$ip=$ip_row->value;
+				extract(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip)));
+				 /*
+				 echo $geoplugin_latitude;
+				 echo '<br>';
+				 echo $geoplugin_longitude;
+	 			//*/	
+				 ?>
+			<iframe width="100%" height="300" src = "https://maps.google.com/maps?q=<?php echo $geoplugin_latitude;?>,<?php echo $geoplugin_longitude;?>&hl=es;z=14&amp;output=embed"></iframe>
+	</div>
+<?php endif; ?>
+
 </div>
 
 
-<div class="view Geoloaction-view">
- 		<span class="title"><i class="fas fa-toggle-on"></i> Geolocation</span>
- 		
-</div>
+
 
 
  <?php if($usertype=='admin'):  ?>

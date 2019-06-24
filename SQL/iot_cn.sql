@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 29, 2019 at 09:25 AM
--- Server version: 8.0.16
--- PHP Version: 7.3.5
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2019 at 06:13 PM
+-- Server version: 10.3.15-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,14 +25,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `configuration`
+--
+
+CREATE TABLE `configuration` (
+  `id` int(11) NOT NULL,
+  `item` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `configuration`
+--
+
+INSERT INTO `configuration` (`id`, `item`, `value`) VALUES
+(1, 'showMap', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sensors`
 --
 
 CREATE TABLE `sensors` (
   `id` int(11) NOT NULL,
-  `name` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(256) NOT NULL,
   `value` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sensors`
+--
+
+INSERT INTO `sensors` (`id`, `name`, `value`) VALUES
+(1, 'ip', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -45,7 +71,7 @@ CREATE TABLE `sensorview` (
   `title` varchar(256) NOT NULL,
   `sensorId` int(11) NOT NULL,
   `unit` varchar(256) NOT NULL,
-  `logo` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+  `logo` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,9 +83,9 @@ CREATE TABLE `sensorview` (
 CREATE TABLE `switchview` (
   `serial` int(11) NOT NULL,
   `title` varchar(256) NOT NULL,
-  `code` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `logo` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `value` tinyint(1) NOT NULL DEFAULT '0'
+  `code` varchar(256) NOT NULL,
+  `logo` varchar(256) NOT NULL,
+  `value` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -76,8 +102,22 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `usertype`) VALUES
+(1, 'admin', '161331', 'admin'),
+(2, 'admin', '161331', 'admin');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `configuration`
+--
+ALTER TABLE `configuration`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sensors`
@@ -109,10 +149,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `configuration`
+--
+ALTER TABLE `configuration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sensors`
 --
 ALTER TABLE `sensors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sensorview`
@@ -130,7 +176,7 @@ ALTER TABLE `switchview`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -140,7 +186,7 @@ ALTER TABLE `user`
 -- Constraints for table `sensorview`
 --
 ALTER TABLE `sensorview`
-  ADD CONSTRAINT `sensorId` FOREIGN KEY (`sensorId`) REFERENCES `sensors` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `sensorId` FOREIGN KEY (`sensorId`) REFERENCES `sensors` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

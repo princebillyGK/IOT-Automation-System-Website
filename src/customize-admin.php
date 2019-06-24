@@ -185,7 +185,21 @@
 	
 	/*=====  End of remove button control  ======*/
 	
-	
+	/*=============================================
+	=            GeoMap View Control            =
+	=============================================*/
+		
+	if(isset($_GET['map'])){
+		$what= input_filter($_GET['map']);
+		if($what=='toggle'){
+			$db->query('UPDATE `configuration` SET `value`=!`value` WHERE `item`="showMap"');
+			$db->execute();
+		}
+	}
+
+
+/*=====  End of GeoMap View Control  ======*/
+
 
 
 
@@ -313,6 +327,22 @@
 					    </tr>
 				  	<?php endforeach ?>
 				</table>
+			</div>
+		</section>
+
+		<section id="mapView">
+			<div class="view">
+				<div class="title">
+					Geolocation Settings
+				</div>
+				<hr>
+				<?php
+					$db->query("SELECT * FROM `configuration` WHERE `item`='showMap'");
+					$showMap=$db->fetch();
+				?>
+				<a href='<?php echo $_SERVER['PHP_SELF'].'?map=toggle'?>' type="button" class="w-100 btn btn-<?php echo $showMap->value=='1'?'danger':'success'; ?>">
+					<?php echo $showMap->value=='1'?'Hide Map':'Show Map'; ?>
+				</a>
 			</div>
 		</section>
 
