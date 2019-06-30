@@ -1,6 +1,8 @@
 # IOT Automation System
 
-##### Website  link: <a href="princebillywebwork.epizy.com" target="_blank">Passport Application System</a>
+##### Blank Website  link: <a href="princebillygkiotas.epizy.com/" target="_blank">Passport Application System</a>
+##### Implementation link: <a href="https://iotweathermonitor.000webhostapp.com">Passport Application System</a>
+***Default(can only be changed from database) admin username: "admin" password: "116331" to access the website***
 
 #### Features:
 
