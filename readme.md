@@ -1,4 +1,4 @@
-# Passport Application System
+# IOT Automation System
 
 ##### Website  link: <a href="princebillywebwork.epizy.com" target="_blank">Passport Application System</a>
 
@@ -8,9 +8,15 @@
 
    ![IOT AS DEVICE](https://i.imgur.com/oi3mpfb.jpg)
 
-2. Admin can add switches, sensors and new users as much as they wishes.
+2. Admin can add and remove switches, sensors and new users as much as they wishes.
+
 3. Machine can add new sensors to database and update their value by browsing update_machine.php file.
-4. Machine can watch and update switch status by browsing stat_machine.php file.
+
+   > browsing  ....../update_machine.php will track ip of the machine.
+   >
+   > browsing ...../update_machine.php?x1=<value>&x2=<value>&.... will update value of sensor x1,x2,... if they are already exists otherwise it will create new sensors named x1,x2,... and assign their value.
+
+4. Machine can watch and update switch status by browsing stat_machine.php file. 
 5. This can website track the location of machine when it access the website and show its location in google map 
 
 #### Used Technologies:
