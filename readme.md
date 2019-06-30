@@ -1,29 +1,20 @@
-# See Before you do anything
+# Passport Application System
 
-- Install Xampp.
-- Change xampp user password to '161331' for user account 'root' and host 'localhost'
-- Copy php.ini file from 'copy it; folder in xampp/php
-- Create a Database named 'iot_cn'.
-- Export SQL from 'SQL script' folder.
-- Install npm globally
-- Run "npm install" comand once
-- Run Gulp default task once for compile dist folder if you want to live editing you can also keep running gulp 'wt' task .
-- use this chrome extension to randomly feel all data in a form if you needed [Form Filler](https://bitbucket.org/princebilly/passport-verification-site/src/master/)
-- use 'dummy uploads' folder if you needed
-- You are all done enjoy it now.
+##### Website  link: <a href="princebillywebwork.epizy.com" target="_blank">Passport Application System</a>
 
-**Machine php:** 
+#### Features:
 
-| machine php | update_machine.php | stat_machine.php |
+1. This website is developed to works with esp8266 to show data from sensors and control electric switches
 
-**Database:**
+   ![IOT AS DEVICE](https://i.imgur.com/oi3mpfb.jpg)
 
-*you can change this parameters in "src/config/config.php" php file*
+2. Admin can add switches, sensors and new users as much as they wishes.
+3. Machine can add new sensors to database and update their value by browsing update_machine.php file.
+4. Machine can watch and update switch status by browsing stat_machine.php file.
+5. This can website track the location of machine when it access the website and show its location in google map 
 
-| Parameter | Value     |
-| --------- | --------- |
-| username  | root      |
-| host      | localhost |
-| password  | 161331    |
-| db_name   | iot_cn    |
+#### Used Technologies:
 
+	HTML, SCSS, JS, JQuery, Bootstrap, php, gulp, npm, photoshop
+
+> ***princebilllyGK***
