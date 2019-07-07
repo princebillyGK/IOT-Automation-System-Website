@@ -1,5 +1,6 @@
 
-<?php 
+<?php
+	session_start();
 	include 'config/init.php'; 
 	include 'lib/inputProcess.php';
 	$db = new Database();
@@ -7,7 +8,6 @@
 
 
 <?php 
-	session_start();
 	if(!isset($_SESSION['user'])){
 		header('location: login.php');
 	}else{
@@ -43,7 +43,7 @@
  <div class="view sensors-view">
  		<span class="title"><i class="fas fa-tachometer-alt"></i> Sensors</span>
  		<?php if($usertype=='admin'):  ?>
- 			<a href="customize-admin.php#sensorview" class="btn btn-success text-light float-right">
+ 			<a href="customize-admin.php#sensorview" class="btn btn-success float-right">
  				<i class="fas fa-cog"></i>
  			</a>
  		<?php endif; ?>
@@ -73,7 +73,7 @@
  <div class="view switch-view">
  		<span class="title"><i class="fas fa-toggle-on"></i> Switches</span>
  		<?php if($usertype=='admin'):  ?>
- 			<a href="customize-admin.php#switchview" class="btn btn-success text-light float-right">
+ 			<a href="customize-admin.php#switchview" class="btn btn-success float-right">
  				<i class="fas fa-cog"></i>
  			</a>
  		<?php endif; ?>
@@ -107,7 +107,7 @@
 	<div class="view Geoloaction-view">
 			<span class="title"><i class="fas fa-map-marked-alt"></i> Geolocation</span>
 			<?php if($usertype=='admin'):  ?>
-				<a href="customize-admin.php#mapView" class="btn btn-success text-light float-right">
+				<a href="customize-admin.php#mapView" class="btn btn-success float-right">
 					<i class="fas fa-cog"></i>
 				</a>
 			<?php endif; ?>
@@ -123,12 +123,11 @@
 				 echo $geoplugin_longitude;
 	 			//*/	
 				 ?>
-			<iframe width="100%" height="300" src = "https://maps.google.com/maps?q=<?php echo $geoplugin_latitude;?>,<?php echo $geoplugin_longitude;?>&hl=es;z=14&amp;output=embed"></iframe>
+			<iframe width="100%" height="300" src = "https://maps.google.com/maps?q=<?php echo $geoplugin_latitude;?>,<?php echo $geoplugin_longitude;?>&amp;ie=UTF8&amp;t=h&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
 	</div>
 <?php endif; ?>
 
 </div>
-
 
 
 

@@ -3,6 +3,9 @@ const imagemin= require('gulp-imagemin');
 const uglify= require('gulp-uglify');
 const sass= require('gulp-sass');
 const autoprefixer= require('gulp-autoprefixer');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
+var gutil = require('gulp-util');
 
 function msg(cb){
   console.log('Gulp script working');
@@ -31,6 +34,15 @@ function js(cb){
 
 function compilecss(cb){
  src('src/sass/style.scss')
+  .pipe(plumber({ errorHandler: function(err) {
+      notify.onError({
+          title: "Gulp error in " + err.plugin,
+          message:  err.toString()
+      })(err);
+
+      // play a sound once
+      gutil.beep();
+  }}))
   .pipe(sass())
   .pipe(dest('src/css'))
   .pipe(autoprefixer({

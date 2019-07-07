@@ -10,7 +10,7 @@
 html, body {min-height: 100%;}
 body{
 	margin-top: $body-start;
-	background: url("../img/body.jpg") no-repeat; 
+	background: $body-img no-repeat; 
 	background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -28,7 +28,8 @@ footer{
 ==================================*/
 
 #login-form{
-	background: #fff;
+	background: $login-form-background;
+	color: $login-text-color;
 	max-width: 600px;
 	@include center;
 	@include mat;
@@ -42,7 +43,8 @@ footer{
 =============================*/
 
 .view{
-	background-color: rgba(256,256,256,0.8);
+	background-color: $view-background-color;
+	color: $login-text-color;
 	padding: 10px;
 	@include mat;
 	margin: 50px 0;
@@ -64,7 +66,9 @@ footer{
 }
 
 .sensorbox{
-	background-color: #F6F6F6;
+	background-color: $sensor-box-color;
+	background-image: $sensor-box-grad;
+	color: $sensor-box-text-color;
 	width: 200px;
 	height: 70px;
 	@include mat;
@@ -80,7 +84,6 @@ footer{
 	}
 	.logo{
 		height: 32px;
-		display: inline-block;
 		float: right;
 	}
 }
@@ -100,7 +103,9 @@ footer{
 	}
 }
 .switchbox{
-	background-color: #F6F6F6;
+	background-color: $switch-box-color;
+	background-image: $switch-box-grad;
+	color: $switch-box-text-color;
 	width: 100px;
 	height: 100px;
 	display: block;
@@ -111,7 +116,7 @@ footer{
 	margin: 10px;
 	border-radius: 5px;
 	&:active{
-		background-color: #AAAAAA;
+		background-color: darken($switch-box-color, $active-darken-amount);
 	}
 	.title{
 		font-size: 14px;

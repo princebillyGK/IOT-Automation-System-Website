@@ -1,5 +1,6 @@
 
-<?php 
+<?php
+	session_start();
 	include 'config/init.php';
 	include 'lib/inputProcess.php';	
 	 $db= new Database();
@@ -7,7 +8,6 @@
 
 
 <?php 
-	session_start();
 	if(!isset($_SESSION['user'])){
 		header('location: login.php');
 	}else{

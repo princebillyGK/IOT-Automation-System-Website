@@ -1,1 +1,24 @@
+/* -------------------------------------------------------------------------- */
+/*                              Colors Varriable                              */
+/* -------------------------------------------------------------------------- */
+
+//LOGIN
+$login-form-background: transparentize(#263238, 0.1);
+$login-text-color: #fff;
+//view
+$view-background-color: transparentize(#263238, 0.2);
+
+
+//boxes
+$sensor-box-color: #051937;
+$sensor-box-grad: linear-gradient(to right top, #051937, #005070, #008d93, #67c99c, #e3ffa1);
+$sensor-box-text-color: #fff;
+$switch-box-color: #051937;
+$switch-box-grad: linear-gradient(to right top, #051937, #005070, #008d93, #67c99c, #e3ffa1);
+$switch-box-text-color: #fff;
+//values
+$active-darken-amount: 0.5;
 $body-start: 50px;
+
+//images
+$body-img: url("../img/body.jpg");
