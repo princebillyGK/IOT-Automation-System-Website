@@ -9,10 +9,15 @@
 	if(!empty($_REQUEST)){
 		print_r($_REQUEST);
 		foreach ($_REQUEST as $key => $value) {
-			$db->query("SELECT * FROM sensors WHERE name = ?");
 			$key=input_filter($key);
-			$temp= $db->fetchArray([$key]);
-			if(empty($temp)){
+			$db->query("SELECT * FROM sensors WHERE name = ?");
+			$tempsensor= $db->fetchArray([$key]);
+			$db->query("SELECT * FROM switchview WHERE code = ?");
+			$tempswitch= $db->fetchArray([$key]);
+			if(!empty($tempswitch)){
+				$db->query("UPDATE `switchview` SET `value`= ? WHERE `code` = ?");
+				$db->execute([$value,$key]);
+			}else if(empty($tempsensor)){
 				$db->query("INSERT INTO `sensors` (`name`, `value`) VALUES (?,?)");
 				$db->execute([$key,$value]);
 			}else{
@@ -20,6 +25,5 @@
 				$db->execute([$value,$key]);
 			}
 		}
-
 	}
  ?>
