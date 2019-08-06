@@ -62,7 +62,7 @@
 				      	 $db->query('SELECT * FROM `sensors` WHERE id= ?'); 
 				      	 $sensordevice= $db->fetch([$sensor->sensorId])
 				      ?>
-				      <p class="value"><?php echo $sensordevice->value; ?><?php echo $sensor->unit; ?></p>
+				      <p class="value"><?php echo $sensordevice->value; ?> <?php echo $sensor->unit; ?></p>
 				</div>
 			<?php endforeach ?>
 		</div>

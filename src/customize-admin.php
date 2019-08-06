@@ -35,44 +35,48 @@
 		$sensorUnit= input_filter($_POST['sensorUnit']);
 		$sensorDevice= input_filter($_POST['sensorDevice']);
 		//print_r($_FILES);
-	$uploaded_sensorLogo_name= $_FILES['sensorLogo']['name'];
-        $uploaded_sensorLogo_tmp_name= $_FILES['sensorLogo']['tmp_name'];
-        $uploaded_sensorLogo_size=$_FILES['sensorLogo']['size'];
-        $uploaded_sensorLogo_error= $_FILES['sensorLogo']['error'];
-        $uploaded_sensorLogo_type= $_FILES['sensorLogo']['type'];
-        $uploaded_sensorLogo_ext=explode('.', $uploaded_sensorLogo_name);
-        $uploaded_sensorLogo_actual_ext= strtolower(end($uploaded_sensorLogo_ext));
-        $uploaded_sensorLogo_dimension= getimagesize($uploaded_sensorLogo_tmp_name);
-        $uploaded_sensorLogo_width= $uploaded_sensorLogo_dimension[0];
-        $uploaded_sensorLogo_height= $uploaded_sensorLogo_dimension[1];
-        $allowed_sensorLogo = array('png');
-        $uploaded_sensorLogo_new_name= uniqid().'.'.$uploaded_sensorLogo_actual_ext;
-                    $uploaded_sensorLogo_destination='appdata/logo/sensorLogo/'.$uploaded_sensorLogo_new_name;
-        if($uploaded_sensorLogo_error===0){
-            if(in_array($uploaded_sensorLogo_actual_ext,$allowed_sensorLogo)){
-                if($uploaded_sensorLogo_size<=1000000){
-                    if($uploaded_sensorLogo_width==128 && $uploaded_sensorLogo_height==128){
-                         move_uploaded_file($uploaded_sensorLogo_tmp_name,$uploaded_sensorLogo_destination);
-                    }else{
-                        $e="Uploaded sensorLogo should be of 128 x 128";
-                        goBackError($e);
-                        exit;
-                    }
-                }else{
-                    $e= 'Your file is too big';
-                    goBackError($e);
-                    exit;
-                }
-            }else{
-                $e= 'Uploaded logo must be png';
-                 goBackError($e);
-                 exit;
-            }
-        }else{
-            $e= 'There was an error uploading your sensorLogo'.
-                goBackError($e);
-                exit;
-        }  
+		if(!empty($_FILES['sensorLogo']['name'])){
+			$uploaded_sensorLogo_name= $_FILES['sensorLogo']['name'];
+			$uploaded_sensorLogo_tmp_name= $_FILES['sensorLogo']['tmp_name'];
+			$uploaded_sensorLogo_size=$_FILES['sensorLogo']['size'];
+			$uploaded_sensorLogo_error= $_FILES['sensorLogo']['error'];
+			$uploaded_sensorLogo_type= $_FILES['sensorLogo']['type'];
+			$uploaded_sensorLogo_ext=explode('.', $uploaded_sensorLogo_name);
+			$uploaded_sensorLogo_actual_ext= strtolower(end($uploaded_sensorLogo_ext));
+			$uploaded_sensorLogo_dimension= getimagesize($uploaded_sensorLogo_tmp_name);
+			$uploaded_sensorLogo_width= $uploaded_sensorLogo_dimension[0];
+			$uploaded_sensorLogo_height= $uploaded_sensorLogo_dimension[1];
+			$allowed_sensorLogo = array('png');
+			$uploaded_sensorLogo_new_name= uniqid().'.'.$uploaded_sensorLogo_actual_ext;
+						$uploaded_sensorLogo_destination='appdata/logo/sensorLogo/'.$uploaded_sensorLogo_new_name;
+			if($uploaded_sensorLogo_error===0){
+				if(in_array($uploaded_sensorLogo_actual_ext,$allowed_sensorLogo)){
+					if($uploaded_sensorLogo_size<=1000000){
+						if($uploaded_sensorLogo_width==128 && $uploaded_sensorLogo_height==128){
+							move_uploaded_file($uploaded_sensorLogo_tmp_name,$uploaded_sensorLogo_destination);
+						}else{
+							$e="Uploaded sensorLogo should be of 128 x 128";
+							goBackError($e);
+							exit;
+						}
+					}else{
+						$e= 'Your file is too big';
+						goBackError($e);
+						exit;
+					}
+				}else{
+					$e= 'Uploaded logo must be png';
+					goBackError($e);
+					exit;
+				}
+			}else{
+				$e= 'There was an error uploading your sensorLogo'.
+					goBackError($e);
+					exit;
+			}
+		}else{
+			$uploaded_sensorLogo_destination="img\default_sensor.png";
+		}
 
 
 	    $db->query('INSERT INTO `sensorview`( `title`, `sensorId`, `unit`, `logo`) VALUES (:col_1,:col_2,:col_3,:col_4)');                
@@ -94,44 +98,48 @@
 		$switchTitle= input_filter($_POST['switchTitle']);
 		$switchCode= input_filter($_POST['switchCode']);
 		//print_r($_FILES);
-	$uploaded_switchLogo_name= $_FILES['switchLogo']['name'];
-        $uploaded_switchLogo_tmp_name= $_FILES['switchLogo']['tmp_name'];
-        $uploaded_switchLogo_size=$_FILES['switchLogo']['size'];
-        $uploaded_switchLogo_error= $_FILES['switchLogo']['error'];
-        $uploaded_switchLogo_type= $_FILES['switchLogo']['type'];
-        $uploaded_switchLogo_ext=explode('.', $uploaded_switchLogo_name);
-        $uploaded_switchLogo_actual_ext= strtolower(end($uploaded_switchLogo_ext));
-        $uploaded_switchLogo_dimension= getimagesize($uploaded_switchLogo_tmp_name);
-        $uploaded_switchLogo_width= $uploaded_switchLogo_dimension[0];
-        $uploaded_switchLogo_height= $uploaded_switchLogo_dimension[1];
-        $allowed_switchLogo = array('png');
-        $uploaded_switchLogo_new_name= uniqid().'.'.$uploaded_switchLogo_actual_ext;
-                    $uploaded_switchLogo_destination='appdata/logo/switchLogo/'.$uploaded_switchLogo_new_name;
-        if($uploaded_switchLogo_error===0){
-            if(in_array($uploaded_switchLogo_actual_ext,$allowed_switchLogo)){
-                if($uploaded_switchLogo_size<=1000000){
-                    if($uploaded_switchLogo_width==128 && $uploaded_switchLogo_height==128){
-                         move_uploaded_file($uploaded_switchLogo_tmp_name,$uploaded_switchLogo_destination);
-                    }else{
-                        $e="Uploaded switchLogo should be of 128 x 128";
-                        goBackError($e);
-                        exit;
-                    }
-                }else{
-                    $e= 'Your file is too big';
-                    goBackError($e);
-                    exit;
-                }
-            }else{
-                $e= 'Uploaded logo must be png';
-                 goBackError($e);
-                 exit;
-            }
-        }else{
-            $e= 'There was an error uploading your switchLogo'.
-                goBackError($e);
-                exit;
-        }  
+		if(!empty($_FILES['switchLogo']['name'])){
+			$uploaded_switchLogo_name= $_FILES['switchLogo']['name'];
+			$uploaded_switchLogo_tmp_name= $_FILES['switchLogo']['tmp_name'];
+			$uploaded_switchLogo_size=$_FILES['switchLogo']['size'];
+			$uploaded_switchLogo_error= $_FILES['switchLogo']['error'];
+			$uploaded_switchLogo_type= $_FILES['switchLogo']['type'];
+			$uploaded_switchLogo_ext=explode('.', $uploaded_switchLogo_name);
+			$uploaded_switchLogo_actual_ext= strtolower(end($uploaded_switchLogo_ext));
+			$uploaded_switchLogo_dimension= getimagesize($uploaded_switchLogo_tmp_name);
+			$uploaded_switchLogo_width= $uploaded_switchLogo_dimension[0];
+			$uploaded_switchLogo_height= $uploaded_switchLogo_dimension[1];
+			$allowed_switchLogo = array('png');
+			$uploaded_switchLogo_new_name= uniqid().'.'.$uploaded_switchLogo_actual_ext;
+						$uploaded_switchLogo_destination='appdata/logo/switchLogo/'.$uploaded_switchLogo_new_name;
+			if($uploaded_switchLogo_error===0){
+				if(in_array($uploaded_switchLogo_actual_ext,$allowed_switchLogo)){
+					if($uploaded_switchLogo_size<=1000000){
+						if($uploaded_switchLogo_width==128 && $uploaded_switchLogo_height==128){
+							move_uploaded_file($uploaded_switchLogo_tmp_name,$uploaded_switchLogo_destination);
+						}else{
+							$e="Uploaded switchLogo should be of 128 x 128";
+							goBackError($e);
+							exit;
+						}
+					}else{
+						$e= 'Your file is too big';
+						goBackError($e);
+						exit;
+					}
+				}else{
+					$e= 'Uploaded logo must be png';
+					goBackError($e);
+					exit;
+				}
+			}else{
+				$e= 'There was an error uploading your switchLogo'.
+					goBackError($e);
+					exit;
+			}  
+		}else{
+			$uploaded_switchLogo_destination="img\default_switch.png";
+		} 
 
 
 	    $db->query('INSERT INTO `switchview`(`title`, `code`, `logo`) VALUES (:col_1,:col_2,:col_3)');                
@@ -242,7 +250,7 @@
 				  
 					<br><br>
 				  <div class="col-sm-4 ml-3 mr-3">
-					  <input required name="sensorLogo" type="file" class="custom-file-input" id="sensorLogo">
+					  <input name="sensorLogo" type="file" class="custom-file-input" id="sensorLogo">
 					  <label class="custom-file-label" for="sensorLogo">Upload logo</label>
 				  </div>
 
