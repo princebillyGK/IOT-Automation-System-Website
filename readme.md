@@ -1,9 +1,5 @@
 # IOT Automation System
 
-##### Blank Website  link: <a href="princebillygkiotas.epizy.com/" target="_blank">IOTAS</a>
-##### Implementation link: <a href="https://iotweathermonitor.000webhostapp.com">IOTWA</a>
-***Default(can only be changed from database) admin username: "admin" password: "116331" to access the website***
-
 #### Features:
 
 1. This website is developed to works with esp8266 to show data from sensors and control electric switches
